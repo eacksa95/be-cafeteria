@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  django:
+    image: django-docker:0.1
+    build: .
+    ports:
+      - "8000:8000"
+    links:
+      - db_cafeteria
+    depends_on:
+      - db_cafeteria
+
+
+  db_cafeteria:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

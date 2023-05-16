@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  apprecetas:
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    ports:
+      - "3000:3000"
+    links:
+      - mongorecetas
+    volumes:
+      - .:/home/app
+    depends_on:
+      - mongorecetas
+
+  mongorecetas:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=poli
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
