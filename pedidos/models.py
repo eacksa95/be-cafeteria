@@ -6,3 +6,4 @@ class Pedido(models.Model):
     mesa=models.IntegerField()
     lista_productos = models.JSONField()
     monto = models.IntegerField( default=0)
+    estado = models.BooleanField(default=False)
