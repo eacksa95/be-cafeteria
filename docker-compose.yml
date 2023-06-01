@@ -1,15 +1,14 @@
 version: '3.9'
 services:
   django:
-    image: django-docker:0.1
+    image: be-cafeteria:1
     build: .
     ports:
       - "8000:8000"
-    links:
-      - db_cafeteria
     depends_on:
       - db_cafeteria
-
+    networks:
+      - mynetwork
 
   db_cafeteria:
     image: mongo
@@ -21,6 +20,10 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=admin
     volumes:
       - mongo-data:/data/db
+
+networks:
+  mynetwork:
+    driver: bridge
 
 volumes:
   mongo-data:
