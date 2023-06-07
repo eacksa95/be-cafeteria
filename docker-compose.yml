@@ -8,7 +8,7 @@ services:
     depends_on:
       - db_cafeteria
     networks:
-      - mynetwork
+      - red-cafeteria
 
   db_cafeteria:
     image: mongo
@@ -22,7 +22,7 @@ services:
       - mongo-data:/data/db
 
 networks:
-  mynetwork:
+  red-cafeteria:
     driver: bridge
 
 volumes:
