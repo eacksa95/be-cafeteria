@@ -95,7 +95,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'db_cafeteria',
-        'HOST': 'mongodb://localhost:27017/', #db_cafeteria #mongodb://db_cafeteria:27017/
+        'HOST': 'mongodb://db_cafeteria:27017/', #db_cafeteria #mongodb://db_cafeteria:27017/
         'PORT': 27017,
         'ENFORCE_SCHEMA': False,
         'USERNAME': 'admin',
