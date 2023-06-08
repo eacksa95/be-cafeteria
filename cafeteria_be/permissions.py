@@ -12,7 +12,12 @@ class IsAdmin(permissions.BasePermission):
     def has_permission(self, request, view):
         return request.user.groups.get().name == 'admin'
     
+class IsRecepcionistaOrAdmin(permissions.BasePermission):
+    def has_permission(self, request, view):
+        role = request.user.groups.get().name
+        return role == 'recepcionista' or role == 'admin'
+    
 class IsRecepcionistaOrCocinero(permissions.BasePermission):
     def has_permission(self, request, view):
         role = request.user.groups.get().name
-        return role == 'recepcionista' or role == 'cocinero'
+        return role == 'recepcionista' or role == 'cocinero' or role == 'admin'
