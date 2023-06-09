@@ -6,7 +6,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'group_name']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'group_name', 'password']
 
     def get_group_name(self, obj):
         group = Group.objects.filter(user=obj).first()
