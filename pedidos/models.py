@@ -5,6 +5,7 @@ class Pedido(models.Model):
     cliente = models.CharField(max_length=100, default='cliente')
     mesa = models.IntegerField()
     lista_productos = models.JSONField()
+    lista_cantidad = models.JSONField()
     monto = models.DecimalField(default=0, max_digits=10, decimal_places=2)
     estado = models.CharField(max_length=50)
     fecha_recepcion = models.DateField(auto_now_add=True)
