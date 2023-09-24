@@ -31,6 +31,10 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+LOGIN_REDIRECT_URL = '/home'
+LOGOUT_REDIRECT_URL = '/home'
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -138,7 +142,6 @@ AUTH_PASSWORD_VALIDATORS = []
     },
 ] """
 
-from datetime import timedelta
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(days=5),
@@ -162,8 +165,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static_pro", "static")
+]
+
+STATIC_ROOT =  os.path.join(os.path.dirname(BASE_DIR), "static_env","static_root")
+MEDIA_ROOT =  os.path.join(os.path.dirname(BASE_DIR), "static_env","media_root")
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
