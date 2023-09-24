@@ -91,19 +91,31 @@ WSGI_APPLICATION = 'cafeteria_be.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+#ESTA CONFIGURACION DB ES PARA CONECTAR CON CONTENEDORES Y DOCKER-COMPOSE
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'db_cafeteria',
+#         'HOST': 'mongodb://db_cafeteria:27017/', #db_cafeteria #mongodb://db_cafeteria:27017/
+#         'PORT': 27017,
+#         'ENFORCE_SCHEMA': False,
+#         'USERNAME': 'admin',
+#         'PASSWORD': 'admin',
+#         'AUTH_MECHANISM': 'SCRAM-SHA-256',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'db_cafeteria',
-        'HOST': 'mongodb://db_cafeteria:27017/', #db_cafeteria #mongodb://db_cafeteria:27017/
-        'PORT': 27017,
-        'ENFORCE_SCHEMA': False,
-        'USERNAME': 'admin',
-        'PASSWORD': 'admin',
-        'AUTH_MECHANISM': 'SCRAM-SHA-256',
+        'CLIENT': {
+            'host': 'mongodb+srv://eacksa95:7kAQA10dAiXkokBX@cluster0.gzsjnl8.mongodb.net/?retryWrites=true&w=majority'
+
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
