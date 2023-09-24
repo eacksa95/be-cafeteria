@@ -52,6 +52,12 @@ INSTALLED_APPS = [
     'users'
 ]
 
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
@@ -173,8 +179,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static_pro", "static")
 ]
 
-STATIC_ROOT =  os.path.join(os.path.dirname(BASE_DIR), "static_env","static_root")
-MEDIA_ROOT =  os.path.join(os.path.dirname(BASE_DIR), "static_env","media_root")
+STATIC_ROOT =  os.path.join((BASE_DIR), "static_env","static_root")
+MEDIA_ROOT =  os.path.join((BASE_DIR), "static_env","media_root")
 
 
 # Default primary key field type
